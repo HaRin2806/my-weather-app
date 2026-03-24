@@ -29,7 +29,8 @@ function App() {
   const fetchWeather = async (searchLocation) => {
     setLoading(true);
     try {
-      const API_KEY = 'D3DSEMQPSH4BSYWNTJAT7TZXL';
+      const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+      console.log("Kiem tra API key: ", API_KEY);
       const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchLocation}/yesterday/tomorrow?unitGroup=metric&key=${API_KEY}`;
 
       const response = await axios.get(url);
